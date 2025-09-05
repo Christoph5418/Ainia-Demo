@@ -1,0 +1,105 @@
+/* Container */
+.demo-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  min-height: 70vh;
+  max-height: 70vh;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: #555;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.title {
+  margin: 8px 0 4px;
+}
+
+.subtitle {
+  margin: 0 0 16px;
+  color: #666;
+}
+
+.primary-btn {
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Start Screen */
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url('/assets/demo/dinasaur.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.welcome-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  margin: 0 0 3rem 0;
+  position: relative;
+  top: -35vh;
+}
+
+.welcome-btn {
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  padding: 20px 40px;
+  border-radius: 12px;
+  width: 200px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+  transition: all 0.3s ease;
+  transform: translateY(15vh);
+}
+
+.welcome-btn:hover {
+  background: #3730a3;
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.5);
+}
+
+/* Customize Screen */
+.customize-screen {
+  position: relative;
+  z-index: 0;
+  height: 95vh;
+  overflow-y: hidden;
+}
+.customize-screen::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url('/assets/demo/avatar_selection_background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  pointer-events: none;
+}
+

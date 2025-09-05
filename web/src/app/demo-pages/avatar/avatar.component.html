@@ -1,0 +1,74 @@
+<!-- Customize Phase -->
+<div *ngIf="currentPhase === 'customize'">
+  <div class="step-title-banner">Customize your avatar</div>
+  <div class="step-progress" aria-hidden="true">
+    <div class="progress-bg"></div>
+    <div class="progress-fg" [style.width.%]="getProgressPercentage()"></div>
+    </div>
+  <div class="stepper">
+
+    <div class="preview-card">
+      <div
+        class="avatar-canvas"
+        (pointerdown)="onPointerDown($event)"
+        (pointermove)="onPointerMove($event)"
+        (pointerup)="onPointerUp($event)"
+        (pointercancel)="onPointerUp($event)"
+        (pointerleave)="onPointerUp($event)"
+        [class.dragging]="isDragging"
+      >
+        <div class="avatar-slider" [class.animating]="isAnimating">
+          <div class="slide neighbor" *ngIf="prev2PreviewUri" [style.transform]="prev2Transform">
+            <img
+              [src]="prev2PreviewUri"
+              alt="previous 2 avatar preview"
+              class="avatar-img"
+              [attr.draggable]="false"
+            />
+          </div>
+          <div class="slide neighbor" *ngIf="prevPreviewUri" [style.transform]="prevTransform">
+            <img
+              [src]="prevPreviewUri"
+              alt="previous avatar preview"
+              class="avatar-img"
+              [attr.draggable]="false"
+            />
+          </div>
+          <div class="slide current" [style.transform]="currentTransform">
+            <img
+              *ngIf="currentPreviewUri"
+              [src]="currentPreviewUri"
+              alt="avatar preview"
+              class="avatar-img"
+              [attr.draggable]="false"
+            />
+          </div>
+          <div class="slide neighbor" *ngIf="nextPreviewUri" [style.transform]="nextTransform">
+            <img
+              [src]="nextPreviewUri"
+              alt="next avatar preview"
+              class="avatar-img"
+              [attr.draggable]="false"
+            />
+          </div>
+          <div class="slide neighbor" *ngIf="next2PreviewUri" [style.transform]="next2Transform">
+            <img
+              [src]="next2PreviewUri"
+              alt="next 2 avatar preview"
+              class="avatar-img"
+              [attr.draggable]="false"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="primary-btn" (click)="applyCurrentOption()">{{ getButtonText() }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Activity Phase -->
+<div *ngIf="currentPhase === 'activity'">
+  <app-activity></app-activity>
+</div>

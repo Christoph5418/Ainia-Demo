@@ -1,0 +1,36 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependencies
+**/node_modules/
+
+# Build outputs
+**/dist/
+**/.angular/
+
+# Firebase
+**/.firebase/
+firebase-debug.log
+
+# Editors/OS
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Coverage
+coverage/
+
+# Env files
+.env
+.env.*
+
+# Misc
+.tmp/
+.temp/
+**/*.local.*

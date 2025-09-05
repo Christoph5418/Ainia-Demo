@@ -1,0 +1,55 @@
+<div class="activity">
+  <!-- Loading Screen -->
+  <div class="loading-screen" *ngIf="isLoading">
+    <img src="assets/demo/loading.png" alt="Loading..." class="loading-image">
+  </div>
+  
+  <!-- Main Activity Content -->
+  <div class="activity-content" *ngIf="!isLoading && !showEnding">
+    <div class="image-container">
+      <img *ngIf="imageSwapToken" [src]="currentImage" [alt]="'Activity stage ' + currentStage" 
+           class="activity-image" 
+           (load)="onImageLoad()">
+    </div>
+    
+    <!-- Bot Text -->
+    <div class="bot-text" 
+         [class.typing]="isTyping" 
+         [class.stage-2]="currentStage === 2" 
+         [class.stage-3]="currentStage === 3"
+         *ngIf="isTyping || currentBotText">
+      {{ currentBotText }}<span class="cursor" *ngIf="isTyping">|</span>
+    </div>
+  </div>
+
+  <!-- Dedicated Ending View -->
+  <div class="activity-content" *ngIf="!isLoading && showEnding">
+    <div class="image-container">
+      <img [src]="endingImage" alt="Ending" class="activity-image"
+           (load)="onEndingImageLoad()">
+    </div>
+
+    <!-- Confetti Animation -->
+    <div class="confetti-container" *ngIf="showConfetti">
+      <div class="confetti" *ngFor="let piece of confettiPieces" 
+           [style.left.%]="piece.left" 
+           [style.animation-delay.s]="piece.delay"
+           [style.background-color]="piece.color">
+      </div>
+    </div>
+
+    <!-- Bot Text -->
+    <div class="bot-text ending-text" 
+         [class.typing]="isTyping"
+         *ngIf="isTyping || currentBotText">
+      {{ currentBotText }}<span class="cursor" *ngIf="isTyping">|</span>
+    </div>
+    
+    <!-- Return Home Button -->
+    <div class="return-home-container" *ngIf="showReturnHome">
+      <button class="return-home-btn" (click)="returnHome()">
+        Return Home
+      </button>
+    </div>
+  </div>
+</div>

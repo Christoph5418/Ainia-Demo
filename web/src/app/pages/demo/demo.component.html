@@ -1,0 +1,13 @@
+<div class="demo-container">
+
+  <!-- Start Phase -->
+  <section *ngIf="currentPhase === 'start'" class="start-screen">
+    <h1 class="welcome-title">Begin your journey</h1>
+    <button class="welcome-btn" (click)="start()">Start</button>
+  </section>
+
+  <!-- Customize Phase -->
+  <section *ngIf="currentPhase === 'customize'" class="customize-screen">
+    <app-avatar></app-avatar>
+  </section>
+</div>

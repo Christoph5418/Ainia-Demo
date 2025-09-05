@@ -1,0 +1,47 @@
+<div class="portal-container">
+  <div class="topbar">
+    <div class="top-tabs">
+      <button class="top-tab active">Overview</button>
+      <button class="top-tab">Reports</button>
+      <button class="top-tab">Messages</button>
+      <button class="top-tab">Help</button>
+    </div>
+  </div>
+
+  <div class="content">
+    <aside class="sidebar">
+      <div class="sidebar-title">Sections</div>
+      <ul class="nav">
+        <li class="nav-item">Dashboard</li>
+        <li class="nav-item active">Recent Events</li>
+        <li class="nav-item">Progress</li>
+        <li class="nav-item">Rewards</li>
+        <li class="nav-item">Settings</li>
+      </ul>
+    </aside>
+
+    <main class="main">
+      <div class="section-header">
+        <h2>Recent Events</h2>
+        <div class="header-actions">
+          <button class="btn secondary" (click)="onExportEvents()">Export</button>
+          <button class="btn danger" (click)="onDeleteEvents()">Delete</button>
+        </div>
+      </div>
+
+      <div class="events">
+        <div class="event" *ngFor="let e of events">
+          <div class="time">{{ e.time }}</div>
+          <div class="detail">
+            <div class="title">{{ e.title }}</div>
+            <div class="meta" [ngClass]="{ 'with-avatar': e.avatarUrl }">
+              <img *ngIf="e.avatarUrl" class="tiny-avatar" [src]="e.avatarUrl" alt="avatar" />
+              {{ e.meta }}
+            </div>
+          </div>
+          <span class="badge" [ngClass]="e.badge === 'success' ? 'success' : e.badge === 'info' ? 'info' : 'neutral'">{{ e.badge === 'success' ? '✔' : e.badge === 'info' ? '★' : '→' }}</span>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
